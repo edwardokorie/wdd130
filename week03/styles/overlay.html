@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <main>
+        <h1>CSS Layout: Position Absolute</h1>
+        <div class="herodiv">
+            <img src="https://churchofjesuschristtemples.org/assets/img/temples/salvador-brazil-temple/salvador-brazil-temple-51668-main.jpg"
+                alt="Placeholder image" width="700" height="300">
+
+            bottom: 25px;
+            left: 15px;
+            G
+            <section class="stats">
+                <h2>Brazil</h2>
+                <p>Language: <span id="lan">Portuguese</span></p>
+                <p>Size: <span id="size">8.5m km<sup>2</sup></span></p>
+                <p>Visited: <span id="visit">No</span></p>
+            </section>
+        </div>
+    </main>
+    <footer>Footer Content in Fixed Position with bottom set at 0 pixels.</footer>
+    <style>
+        :root {
+            --dark: #102a43;
+            --soft: #eef7ff;
+            --accent: #f9b24e;
+            --text: #f8fbff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, #dfefff, #edf5ff);
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--dark);
+        }
+
+        .hero {
+            position: relative;
+            width: min(90vw, 800px);
+            min-height: 420px;
+            padding: 2rem;
+            border-radius: 18px;
+            overflow: hidden;
+            background:
+                linear-gradient(rgba(16, 42, 67, 0.4), rgba(16, 42, 67, 0.75)),
+                url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            box-shadow: 0 18px 40px rgba(16, 42, 67, 0.25);
+        }
+
+        .overlay * {
+            margin: 0;
+            padding: 0;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 2rem auto;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 1.5rem;
+            text-shadow: 3px 3px 5px #777;
+        }
+
+        .herodiv {
+            margin: 10px auto;
+            position: relative;
+            /* If removed, what happens? */
+        }
+
+        .herodiv img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .stats {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: radial-gradient(#eee, #323A06);
+            border: 1px solid #000;
+            padding: 0.65rem;
+            box-shadow: 0 0 30px #111;
+            opacity: 0.9;
+        }
+
+        h2 {
+            text-shadow: 0 0 15px #333;
+            border-bottom: 1px solid #555;
+            margin-bottom: 0.3rem;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            margin: 1rem;
+            border-top: 1px solid #000;
+            padding: 0.5rem;
+            color: navy;
+            font-weight: 700;
+            font-style: italic;
+        }
+
+        * .content {
+            position: relative;
+            z-index: 1;
+            max-width: 420px;
+            color: var(--text);
+            padding: 1rem 0;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            margin-bottom: 0.75rem;
+            padding: 0.35rem 0.8rem;
+            border-radius: 999px;
+            background: rgba(249, 178, 78, 0.2);
+            color: #ffd89b;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        h1 {
+            margin: 0 0 1rem;
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            line-height: 1.1;
+        }
+
+        p {
+            margin: 0 0 1.5rem;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .button {
+            display: inline-block;
+            padding: 0.9rem 1.5rem;
+            border-radius: 999px;
+            background: var(--accent);
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.2s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+
+<body>
+    <section class="hero" aria-label="Overlay demo">
+        <div class="overlay"></div>
+        <div class="content">
+            <span class="eyebrow">Week 03</span>
+            <h1>Simple CSS Overlay</h1>
+            <p>
+                This example combines a background image with a dark translucent layer to create a clean,
+                readable, and visually appealing overlay effect.
+            </p>
+            <a href="#" class="button">Learn More</a>
+        </div>
+    </section>
+</body>
+
+</html>
